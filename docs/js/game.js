@@ -15,6 +15,7 @@ boxes.push(document.getElementById("box3"));
 // setup
 
 window.addEventListener('load', function() {
+    overlayText.textContent = "Click to start";
     boxes.forEach(box => {
         box.addEventListener("click", function(e) {   
             toggle(box, "active");
@@ -23,7 +24,7 @@ window.addEventListener('load', function() {
     });
     currentOrder = generateRound(gameRounds);
     init();
-})
+});
 
 function generateRound(rounds) {
     let temp = [];
@@ -37,13 +38,13 @@ function showOrder(order, rounds) {
     for (let i = 0; i < rounds; i++) {
         setTimeout( function timer(){
             toggle(boxes[order[i]], "active")
-        }, i * 1000 );
+        }, i * 750 );
     }    
 }
 
 function toggle(element, css) {
     let oldText = element.textContent;
-    element.textContent = "clicked";
+    element.textContent = "Active";
     element.classList.add(css);
     setTimeout(function timer() {
         element.classList.remove(css);
@@ -54,17 +55,15 @@ function toggle(element, css) {
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 
 function init() {
     playerClicks = [];
     clickCount = 0;
     overlay.classList.remove("hide");
-    overlayText.textContent = "Click to start";
     overlay.addEventListener("click", function start() {
         countDown(overlay, overlayText);
-        overlay.removeEventListener("click", start);
     }, false);
 }
 
@@ -101,7 +100,7 @@ function countDown(parent, element) {
             } else {
                 element.textContent = 5 - i;
             }
-        }, i * 500 );
+        }, i * 750 );
     }
 }
 
