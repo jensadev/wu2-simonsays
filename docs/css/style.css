@@ -1,0 +1,69 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#c6a7fe;
+}
+.grid2x2 {
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.grid2x2 > div {
+    display: flex; 
+    flex-basis: 50%;  
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.box0 { color: red; background-color: red; }
+.box1 { color: lime; background-color: lime; }
+.box2 { color: blue; background-color: blue; }
+.box3 { color: yellow; background-color: yellow; }
+
+@keyframes active {
+    100% {background-color: white;}
+}
+
+.active {
+    animation-name: active;
+    animation-duration: 0.2s;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay > h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 5em;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.overlay > h2 {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%,-40%);
+    font-size: 3em;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
